@@ -7,18 +7,18 @@ class Rain < Formula
 
   if OS.mac?
     url "https://github.com/cenkalti/rain/releases/download/v0.16.1/rain_0.16.1_Darwin_x86_64.tar.gz"
-    sha256 "22f6ca69a569ddeb2f4c36797bb0369baff0fa2c436349fccf692e2e0adec793"
+    sha256 "d420868da8aa2c1aaf5d46d9c68ca55ba00cbcaecffd5004f23b391a6057e67b"
   elsif OS.linux?
     if Hardware::CPU.intel?
       url "https://github.com/cenkalti/rain/releases/download/v0.16.1/rain_0.16.1_Linux_x86_64.tar.gz"
-      sha256 "71085c488ea74007f275f0ebcfb33e8d8d8d1055a88a41dd73ebf3b4b3d53d27"
+      sha256 "a7be02b1a3d330ce2e6b1e389159196ce7ec90cf6b4847d2c16a04f4199cca8c"
     end
   end
 
   def install
     bin.install "rain"
     output = Utils.popen_read("#{bin}/rain bash-autocomplete")
-    (bash_completion/rain).write output
+    (bash_completion/"rain").write output
     prefix.install_metafiles
   end
 
