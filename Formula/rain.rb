@@ -2,16 +2,16 @@
 class Rain < Formula
   desc "BitTorrent client"
   homepage "https://github.com/cenkalti/rain"
-  version "0.17.1"
+  version "0.17.2"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/cenkalti/rain/releases/download/v0.17.1/rain_0.17.1_macos.tar.gz"
-    sha256 "37161eeeb21316fb172de6a1bdf1ff17e05ba1e358a55648ec29a31893e13ee1"
+    url "https://github.com/cenkalti/rain/releases/download/v0.17.2/rain_0.17.2_macos.tar.gz"
+    sha256 "ff9ffd42afa30ccfef62ee3c8b6bf2c9b7468bb9b2f399637757219f84265730"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/cenkalti/rain/releases/download/v0.17.1/rain_0.17.1_linux.tar.gz"
-      sha256 "283022c4fe0a330220d809c966850a651a0f37fbb7d78f8d9fc12546ecce8423"
+      url "https://github.com/cenkalti/rain/releases/download/v0.17.2/rain_0.17.2_linux.tar.gz"
+      sha256 "cb780c4bbc23bb781d7483ffe3defc217a7a1adc451f22751b9d2f79d8531305"
     end
   end
 
@@ -20,7 +20,7 @@ class Rain < Formula
     output = Utils.popen_read("#{bin}/rain bash-autocomplete")
     (bash_completion/"rain").write output
     output = Utils.popen_read("#{bin}/rain zsh-autocomplete")
-    (zsh_completion/"rain").write output
+    (zsh_completion/"_rain").write output
     prefix.install_metafiles
   end
 
