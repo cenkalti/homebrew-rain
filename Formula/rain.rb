@@ -2,16 +2,16 @@
 class Rain < Formula
   desc "BitTorrent client"
   homepage "https://github.com/cenkalti/rain"
-  version "1.1.1"
+  version "1.1.2"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/cenkalti/rain/releases/download/v1.1.1/rain_1.1.1_macos.tar.gz"
-    sha256 "c2f3e2fc946b7f7134976994ce166161d84722d3642ed8d8d9f948f28b93bdb9"
+    url "https://github.com/cenkalti/rain/releases/download/v1.1.2/rain_1.1.2_macos.tar.gz"
+    sha256 "59d993e32b8a4d5e8d3cd40de33a5533beb0431c699439c333c60519ec81eb09"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/cenkalti/rain/releases/download/v1.1.1/rain_1.1.1_linux.tar.gz"
-      sha256 "3add8736514ace04a2a0481a9f91139bce4635b6eb83d410ef2107ffed93aaa6"
+      url "https://github.com/cenkalti/rain/releases/download/v1.1.2/rain_1.1.2_linux.tar.gz"
+      sha256 "ed0dcae6417d8faadfbd054fe3d009f02cb6cc32b8f01c3ec17ab349ae39c71e"
     end
   end
 
