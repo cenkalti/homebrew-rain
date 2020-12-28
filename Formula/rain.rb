@@ -7,11 +7,11 @@ class Rain < Formula
 
   if OS.mac?
     url "https://github.com/cenkalti/rain/releases/download/v1.5.2/rain_1.5.2_macos.tar.gz"
-    sha256 "fb5d6655dff6a5baf6b2fe867bafd434d7a6a543389154c454f8fc196fd97b52"
+    sha256 "ae20840f59b76c7896715fa14140680e4e377561049da62a59fe969f2e9efd45"
   end
   if OS.linux? && Hardware::CPU.intel?
     url "https://github.com/cenkalti/rain/releases/download/v1.5.2/rain_1.5.2_linux.tar.gz"
-    sha256 "c1aa486ef3b76d448d86e54d234b8ed7a25127f5469afb08653ab71ff5e0d489"
+    sha256 "ef1b98e2a02c18e306606b3ccceabbcbfc8f1a13f1edf11b4c754c91041067b0"
   end
 
   def install
