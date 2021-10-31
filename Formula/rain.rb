@@ -5,28 +5,34 @@
 class Rain < Formula
   desc "BitTorrent client"
   homepage "https://github.com/cenkalti/rain"
-  version "1.7.2"
-  bottle :unneeded
+  version "1.7.3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/cenkalti/rain/releases/download/v1.7.2/rain_1.7.2_macos.tar.gz"
-      sha256 "b27ba823c90f6146feba6a0d53e079cf9904d842219f99b29f3b16d60b8ba2e3"
+      url "https://github.com/cenkalti/rain/releases/download/v1.7.3/rain_1.7.3_macos.tar.gz"
+      sha256 "8b42297a9fe8b36b873cb384e57088c3efbfb85c560a8bf45c0de5ec47582742"
+
+      def install
+        bin.install "rain"
+        output = Utils.popen_read("#{bin}/rain bash-autocomplete")
+        (bash_completion/"rain").write output
+        prefix.install_metafiles
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/cenkalti/rain/releases/download/v1.7.2/rain_1.7.2_linux.tar.gz"
-      sha256 "43f1bdde7813cc1bb9554d25a7d8e870a66963c01d5b697577e1dad5c5f658e4"
-    end
-  end
+      url "https://github.com/cenkalti/rain/releases/download/v1.7.3/rain_1.7.3_linux.tar.gz"
+      sha256 "a357a88870f2ab84b11d273f0a65eed618360c15e915eafae4ebe2c7af1b9551"
 
-  def install
-    bin.install "rain"
-    output = Utils.popen_read("#{bin}/rain bash-autocomplete")
-    (bash_completion/"rain").write output
-    prefix.install_metafiles
+      def install
+        bin.install "rain"
+        output = Utils.popen_read("#{bin}/rain bash-autocomplete")
+        (bash_completion/"rain").write output
+        prefix.install_metafiles
+      end
+    end
   end
 
   test do
