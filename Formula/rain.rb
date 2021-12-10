@@ -5,12 +5,12 @@
 class Rain < Formula
   desc "BitTorrent client"
   homepage "https://github.com/cenkalti/rain"
-  version "1.8.4"
+  version "1.8.5"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/cenkalti/rain/releases/download/v1.8.4/rain_1.8.4_macos.tar.gz"
-      sha256 "07c571040fe9a93482e884dc3523e30745a66c53ccc9f2938f8f11cffc5668c6"
+      url "https://github.com/cenkalti/rain/releases/download/v1.8.5/rain_1.8.5_macos.tar.gz"
+      sha256 "ede8a53739eac24f9e490a3cb097259f8e6d7b404b151f67ed4df6874952154f"
 
       def install
         bin.install "rain"
@@ -23,8 +23,8 @@ class Rain < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/cenkalti/rain/releases/download/v1.8.4/rain_1.8.4_linux.tar.gz"
-      sha256 "4fd11b4c9bfb021e3263cc2001eeb71b80a91dc2cd699f4ef6b7945a7a079042"
+      url "https://github.com/cenkalti/rain/releases/download/v1.8.5/rain_1.8.5_linux.tar.gz"
+      sha256 "60bb7e0213a02bcf8b03efaeb70c846ea848dbb0cc8ea1eb983482bc623f36d6"
 
       def install
         bin.install "rain"
