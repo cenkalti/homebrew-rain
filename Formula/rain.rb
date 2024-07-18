@@ -5,11 +5,11 @@
 class Rain < Formula
   desc "BitTorrent client"
   homepage "https://github.com/cenkalti/rain"
-  version "1.12.15"
+  version "1.12.16"
 
   on_macos do
-    url "https://github.com/cenkalti/rain/releases/download/v1.12.15/rain_1.12.15_macos.tar.gz"
-    sha256 "025e8c175817a92da53018808fd2831208484e05eb60343e1438eca4ba96a861"
+    url "https://github.com/cenkalti/rain/releases/download/v1.12.16/rain_1.12.16_macos.tar.gz"
+    sha256 "f62ef04036527b8202bc4c048b30ea8992e6a21b46d74126b3ed297a84881186"
 
     def install
       bin.install "rain"
@@ -18,7 +18,7 @@ class Rain < Formula
       prefix.install_metafiles
     end
 
-    if Hardware::CPU.arm?
+    on_arm do
       def caveats
         <<~EOS
           The darwin_arm64 architecture is not supported for the Rain
@@ -30,15 +30,17 @@ class Rain < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/cenkalti/rain/releases/download/v1.12.15/rain_1.12.15_linux.tar.gz"
-      sha256 "a284dbda37380a02a6dc899a412caa908e1bf839f309a29889518e9c5b60277a"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/cenkalti/rain/releases/download/v1.12.16/rain_1.12.16_linux.tar.gz"
+        sha256 "ba09f1ffb418c0bed3bf7ebcfdff9b00091ad68117ce008eeeb336cb701b59df"
 
-      def install
-        bin.install "rain"
-        output = Utils.popen_read("#{bin}/rain bash-autocomplete")
-        (bash_completion/"rain").write output
-        prefix.install_metafiles
+        def install
+          bin.install "rain"
+          output = Utils.popen_read("#{bin}/rain bash-autocomplete")
+          (bash_completion/"rain").write output
+          prefix.install_metafiles
+        end
       end
     end
   end
