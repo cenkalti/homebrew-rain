@@ -5,11 +5,11 @@
 class Rain < Formula
   desc "BitTorrent client"
   homepage "https://github.com/cenkalti/rain"
-  version "1.13.0"
+  version "2.0.0"
 
   on_macos do
-    url "https://github.com/cenkalti/rain/releases/download/v1.13.0/rain_1.13.0_macos.tar.gz"
-    sha256 "f15b5da49f7a31f868cdf88ade9807307e07f080b02b1ff1fa438b8f6847d70f"
+    url "https://github.com/cenkalti/rain/releases/download/v2.0.0/rain_2.0.0_macos.tar.gz"
+    sha256 "9efc3f9ec68f9d36049411a82919fd11a25ec0d57b4cf3e0f0d7adbe8ba9d4b1"
 
     def install
       bin.install "rain"
@@ -18,7 +18,7 @@ class Rain < Formula
       prefix.install_metafiles
     end
 
-    on_arm do
+    if Hardware::CPU.arm?
       def caveats
         <<~EOS
           The darwin_arm64 architecture is not supported for the Rain
@@ -30,10 +30,10 @@ class Rain < Formula
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/cenkalti/rain/releases/download/v1.13.0/rain_1.13.0_linux.tar.gz"
-        sha256 "7b63a28ee66d7f1edf0b9885e49b265e5d10f35fb2646de44a50e79c12154388"
+        url "https://github.com/cenkalti/rain/releases/download/v2.0.0/rain_2.0.0_linux.tar.gz"
+        sha256 "bfbf0a948a568e674da92c3175e761694447af50540d150ce33dda270e0d7d47"
 
         def install
           bin.install "rain"
