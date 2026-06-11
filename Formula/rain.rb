@@ -5,13 +5,13 @@
 class Rain < Formula
   desc "BitTorrent client"
   homepage "https://github.com/cenkalti/rain"
-  version "2.3.0"
+  version "2.3.1"
 
   on_macos do
-    url "https://github.com/cenkalti/rain/releases/download/v2.3.0/rain_2.3.0_macos.tar.gz"
-    sha256 "1b04d31e09223c324895169da3b255a5e6a4b13ea19de38b30232c3a4dabc76a"
+    url "https://github.com/cenkalti/rain/releases/download/v2.3.1/rain_2.3.1_macos.tar.gz"
+    sha256 "4c0819c4a7b9707b26fee9149a4c59ef6a260797587c17099a54a031f05ef0e3"
 
-    def install
+    define_method(:install) do
       bin.install "rain"
       output = Utils.popen_read("#{bin}/rain bash-autocomplete")
       (bash_completion/"rain").write output
@@ -31,9 +31,9 @@ class Rain < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cenkalti/rain/releases/download/v2.3.0/rain_2.3.0_linux.tar.gz"
-      sha256 "70d4e007f484d203644342783ac40a25c7117626701767cdb08db9148d05c012"
-      def install
+      url "https://github.com/cenkalti/rain/releases/download/v2.3.1/rain_2.3.1_linux.tar.gz"
+      sha256 "440cc661d43a22934da94cdfcb316d772d76ab90c218fad759f27d092f5d0936"
+      define_method(:install) do
         bin.install "rain"
         output = Utils.popen_read("#{bin}/rain bash-autocomplete")
         (bash_completion/"rain").write output
